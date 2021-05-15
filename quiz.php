@@ -9,15 +9,23 @@
         <div>
             <?php 
             $username = "";
-            if(isset($_SESSION["user_name"])) {
-                $username = $_SESSION["user_name"];
+            if(isset($_SESSION["user_name"]) || isset($_SESSION["administrator"])) {
+                if(isset($_SESSION["administrator"])) {
+                    $username = $_SESSION["administrator"];
+                } else {
+                    $username = $_SESSION["user_name"];
+                }
+                
             } else {
                 die("You are not logged in. Please log in from the following <a href='index.php'>form.</a>");
             }
             
             
             ?>
-            <form action="answer_check.php" method="POST">
+            <h1>
+            <?php echo $username;?>
+            </h1>
+            <form action="answers_check.php" method="POST">
                 <?php 
                 $content = file("questions.txt");
 
@@ -92,18 +100,25 @@
                 } else {
                     header("location:quiz.php");
                 }
-                
                 ?>
+                <input type="submit" name="check_answers" value="Finish">
+                
                 <input type="submit" name="logout" value="Logout">
+
             </form>
+            <form action="" method="POST">
             <?php 
-            
-            if(isset($_POST["logout"])) {
-                session_unset();
-                session_destroy();
-                header("location:index.php");
+            if(isset($_SESSION["administrator"])) {
+                echo "<input type='submit' name='add_question' value='Add, remove or edit questions'><br><br>";
             }
+
+            if(isset($_POST["add_question"])) {
+                header("location:edit_quiz.php");
+            }
+            
             ?>
+            </form>
+            
         </div>
     </body>
 </html>

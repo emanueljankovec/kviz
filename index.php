@@ -69,13 +69,14 @@ if(isset($_POST["login"])) {
 
         fclose($file);
     } 
-    
+
     if($username == "admin" && $password == "admin") {
         $_SESSION["administrator"] = "admin";
         header("location:edit_quiz.php");
     } else {
         echo "The credentials you entered are invalid.<a href='index.php'>Please try again.</a>";
     }
+   
 }
 
 ?>
