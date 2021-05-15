@@ -38,36 +38,43 @@ session_start();
 <?php 
 
 if(isset($_POST["login"])) {
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+    $username = "";
+    $password = "";
+    $user = "";
+    $pass = "";
 
-    $file = fopen("user_base.dat", "r");
-    $file_length = filesize("user_base.dat");
-    $file_content = fread($file, $file_length);
-    $file_content = str_replace("\n", "", $file_content);
-    $file_content = explode("||", $file_content);
+    if($_POST["username"] != "" && $_POST["password"] != "") {
+        $username = $_POST["username"];
+        $password = $_POST["password"];
 
-    for($i = 0; $i < count($file_content); $i++) {
-        if($username == $file_content[$i]) {
-            $user = $file_content[$i];
+        $file = fopen("user_base.dat", "r");
+        $file_length = filesize("user_base.dat");
+        $file_content = fread($file, $file_length);
+        $file_content = str_replace("\n", "", $file_content);
+        $file_content = explode("||", $file_content);
+
+        for($i = 0; $i < count($file_content); $i++) {
+            if($username == $file_content[$i]) {
+                $user = $file_content[$i];
+            }
+            if($password == $file_content[$i]) {
+                $pass = $file_content[$i];
+            }
         }
-        if($password == $file_content[$i]) {
-            $pass = $file_content[$i];
-        }
-    }
 
-    if($user == $username && $pass == $password) {
-        $_SESSION["user_name"] = $username;
-        header("location:quiz.php");
-    }
+        if($username == $user && $password == $pass) {
+            $_SESSION["user_name"] = $username;
+            header("location:quiz.php");
+        } 
 
-    fclose($file);
-
+        fclose($file);
+    } 
+    
     if($username == "admin" && $password == "admin") {
         $_SESSION["administrator"] = "admin";
         header("location:edit_quiz.php");
     } else {
-        echo "The credentials you entered are invalid.<a href='index.php'>Pokusajte ponovo.</a>";
+        echo "The credentials you entered are invalid.<a href='index.php'>Please try again.</a>";
     }
 }
 
