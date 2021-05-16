@@ -1,8 +1,13 @@
 <?php 
 session_start();
 $username = "";
-if(isset($_SESSION["korisnik"])) {
-    $username = $_SESSION["korisnik"];
+if(isset($_SESSION["korisnik"]) || isset($_SESSION["administrator"])) {
+    if(isset($_SESSION["administrator"])) {
+        $username = $_SESSION["administrator"];
+    } else {
+        $username = $_SESSION["korisnik"];
+    } 
+     
     echo "<html>";
     echo "<head>";
     echo "<title>Kviz</title>";
