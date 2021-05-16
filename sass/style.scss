@@ -1,0 +1,315 @@
+@import './fonts';
+@import './variables';
+@import './resets';
+
+p {
+    font-family: 'Arvo', serif;
+    font-weight: 400;
+}
+
+
+input[type="submit"],
+input[type="text"],
+input[type="password"],
+input[value="Sign in"],
+input[type="email"],
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+textarea {
+    font-family: 'Arvo', serif;
+    font-weight: 700;
+}
+
+input[type="submit"],
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    font-family: 'Arvo', serif;
+    font-weight: 700;
+    padding: 5px;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+}
+
+.container-fluid {
+    background-image: url('../img/bg.png');
+    background-size: cover;
+    height: 100vh;
+    margin: 0 auto 0 auto;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .login-form {
+        background: rgba($color--white, .7);
+        width: 400px;
+        border-radius: 6px;
+        margin: 0 auto 0 auto;
+        margin-bottom: 200px;
+        padding: 0px 0px 20px 0px;
+        border: $color--blue 4px solid; 
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        
+        h1 {
+            font-size: 1.8rem;
+            padding-top: 20px;
+            text-transform: uppercase;
+        }
+
+        form {
+
+            input[type="text"],
+            input[type="password"] {
+                width: 80%;
+            }
+            input[type="text"] {
+                margin-top: 20px;
+            }
+
+            input[type="password"] {
+                margin-top: 20px;
+            }
+
+            .log-reg {
+
+                input[value="Sign in"] {
+                    font-size: 18px;
+                    transition: .3s ease;
+                    &:hover {
+                        color: $color--white;
+                        background-color: $color--blue;
+                    }
+                }
+                
+                p {
+                    font-weight: 700;
+                    padding: 10px 0px;
+                }
+                .sign-in {
+                    width: 70%;
+                    background-color: $color--green;
+                    border: none;
+                }
+                .register {
+                    background-color: $color--green;
+                    border: none;
+                    font-size: 16px;
+                    padding: 6px;
+                    width: 70%;
+                    transition: .3s ease;
+                    &:hover {
+                        color: $color--white;
+                        background-color: $color--blue;
+                    }
+                }
+            }
+            .error-message {
+
+                .empty {
+                    padding-bottom: 15px;
+                }
+
+                .not-valid {
+                    padding: 10px 0px;
+                }
+
+                div {
+                    padding-bottom: 20px;
+                    padding-top: 10px;
+                    
+                    a {
+                        color: $color--black;
+                        background-color: $color--green;
+                        padding: 5px 20px;
+                        text-decoration: none;
+                        transition: .3s ease;
+                        &:hover {
+                            color: $color--white;
+                            background-color: $color--blue;
+                        }
+                    }
+                }
+            }
+        }
+        
+        
+    }
+}
+
+.register-form {
+    .container-fluid {
+        background-image: url('../img/reg_bg.jpg');
+
+
+        .container {
+            .register-con {
+                text-align: center;
+                background: rgba(0, 0, 0, .3);
+                width: 400px;
+                border-radius: 6px;
+                margin: 0 auto 0 auto;
+                margin-bottom: 200px;
+                padding: 0px 0px 20px 0px;
+                border: $color--black 4px solid; 
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+
+                h1 {
+                    padding: 20px 0px;
+                    color: $color--white;
+                }
+
+                form {
+                    input[type="radio"] {
+                        margin: 5px 0px;
+                        cursor: pointer;
+                    }
+                    
+                    span {
+                        font-family: 'Arvo', serif;
+                        font-weight: 700;
+                        font-size: 16px;
+                        padding: 0px 10px;
+                        color: $color--white;
+                    }
+
+                    .male {
+                        margin-right: 25px;
+                    }
+                    
+                    input[type="text"],
+                    input[type="email"],
+                    input[type="password"] {
+                        width: 80%;
+                        margin-bottom: 15px;
+                    }
+
+                    .reg-btn {
+                        margin-bottom: 15px;
+                    }
+
+                    input[type="submit"] {
+                        width: 70%;
+                        background-color: $color--green;
+                        border: none;
+                        padding: 8px;
+                        transition: .3s ease;
+
+                        &:hover {
+                            color: $color--white;
+                            background-color: $color--blue;
+                        }
+                    }
+
+                    
+                    .error-reg {
+                        margin-top: 20px;
+                        h4 {
+                            padding: 5px 0px;
+                            color: $color--white;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        
+    }
+}
+
+.edit-quiz {
+    .container-fluid {
+        background-image: url('../img/edit_bg.jpg');
+        .container {
+
+
+            .new-q {
+
+
+                form {
+                    text-align: center;
+
+                    h1,
+                    h3,
+                    h4 {
+                        color: $color--white;
+                    }
+
+                    
+                    .edit-form {
+                        display: flex;
+                        margin-top: 30px;
+                        textarea {
+                            width: 400px;
+                        }
+                        .add-q {
+                            textarea {
+                                padding: 10px;
+                                resize: unset;
+                                margin-bottom: 20px;
+                            }
+
+                            h4 {
+                                padding-bottom: 20px;
+                            }
+                            .add-q-area {
+                                margin-bottom: 30px;
+                            }
+                            input[type="submit"] {
+                                width: 57%;
+                            }
+                        }
+                        
+                        .edit-q {
+                            h4 {
+                                padding-bottom: 20px;
+                            }
+                            textarea {
+                                padding: 10px 10px 15px 10px;
+                                resize: unset;
+                                margin-bottom: 30px;
+                            }
+                        }
+                    }
+
+                    input[type="submit"] {
+                        background-color: $color--green;
+                        border: none;
+                        padding: 8px;
+                        transition: .3s ease;
+
+                        &:hover {
+                            color: $color--white;
+                            background-color: $color--blue;
+                        }
+                    }
+
+                    .return-submit {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        margin-top: 30px;
+
+                        input {
+                            width: 40%;
+                            margin-bottom: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
