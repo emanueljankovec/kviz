@@ -35,9 +35,9 @@ if(file_exists("pitanja.txt")) {
                                 echo $user;
                                 ?>
                             </h1>
-                            <h3>Dodajte novo pitanje u kviz</h3>
                             <div class="edit-form">
                                 <div class="add-q">
+                                    <h3>Dodajte novo pitanje u kviz</h3>
                                     <h4 class="quest">Pitanje</h4>
                                     <textarea name="novo_pitanje" cols="50" rows="6" placeholder="Unesite pitanje..."></textarea>
                                     <h4>Odgovor</h4>
