@@ -1,5 +1,6 @@
 <?php 
 session_start();
+include_once "functions.php";
 $tacni = 0;
 $pitanje1 = "";
 $pitanje2 = "";
@@ -60,12 +61,7 @@ if(isset($_POST["proveri_odgovore"])) {
         $pitanje5 = "Molimo Vas da unesete odgovor na peto pitanje.";
     }
 }
-if($tacni < 5) {
-    $poruka1 = "Ukupno ste odgovorili tacno na $tacni/5 pitanja. Vise srece drugi put.";
-}
-if($tacni == 5) {
-    $poruka2 = "CESTITAMO! Tacno ste odgovorili na sva pitanja!";
-}
+
 ?>
 <html>
     <head>
@@ -78,23 +74,11 @@ if($tacni == 5) {
                 <div class="container">
                     <div class="results">
                         <?php 
-                        if($pitanje1 != "" || $pitanje2 != "" || $pitanje3 != "" || $pitanje4 != "" || $pitanje5 != "") {
-                            echo "<h4>";
-                            echo $pitanje1 . "<br>";
-                            echo $pitanje2 . "<br>";
-                            echo $pitanje3 . "<br>";
-                            echo $pitanje4 . "<br>";
-                            echo $pitanje5 . "<br>";
-                            echo "</h4>";
-                        }
+                        wrong_answers($pitanje1, $pitanje2, $pitanje3, $pitanje4, $pitanje5);
                         ?>
                         <h2>
                             <?php 
-                            if($poruka1 == "") {
-                                echo $poruka2;
-                            } else {
-                                echo $poruka1;
-                            }
+                            correct_answers($tacni);
                             ?>
                         </h2>
                         
