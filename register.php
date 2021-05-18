@@ -1,4 +1,6 @@
-
+<?php 
+include_once "functions.php";
+?>
 <html>
     <head>
         <title>Registracija</title>
@@ -11,14 +13,16 @@
                     <div class="register-con">
                         <h1>Register Form</h1>
                         <form action="" method="POST">
-                            <input type="text" name="ime" placeholder="Unesite Vase Ime..."><br>
-                            <input type="text" name="prezime" placeholder="Unesite Vase Prezime..."><br>
-                            <input type="text" name="korisnicko" placeholder="Unesite Vase korisnicko ime..."><br>
-                            <input type="password" name="password_register" placeholder="Unesite Vas passowrd"><br>
-                            <input type="email" name="email" placeholder="Unesite Vas email"><br>
-                            <input type="radio" name="pol" value="Muski"><span class="male">Muski</span>
-                            <input type="radio" name="pol" value="Zenski"><span>Zenski</span><br><br>
-                            <input class="reg-btn" type="submit" name="register" value="Registruj se"><br>
+                            <input type="text" name="ime" placeholder="Unesite Vase Ime...">
+                            <input type="text" name="prezime" placeholder="Unesite Vase Prezime...">
+                            <input type="text" name="korisnicko" placeholder="Unesite Vase korisnicko ime...">
+                            <input type="password" name="password_register" placeholder="Unesite Vas passowrd">
+                            <input type="email" name="email" placeholder="Unesite Vas email">
+                            <div class="radio-gender">
+                                <input type="radio" name="pol" value="Muski"><span class="male">Muski</span>
+                                <input type="radio" name="pol" value="Zenski"><span>Zenski</span>
+                            </div>
+                            <input class="reg-btn" type="submit" name="register" value="Registruj se">
                             <input type="submit" name="back_to_login" value="Vrati se na login stranicu">
                             <?php 
                             $error_name = "";
@@ -73,23 +77,12 @@
                                     $error_radio = "<h4>Molimo Vas da izaberete Vas pol.</h4>";
                                 }
                             
-                                $dm = "||";
-
-                                if($ime != "" && $prezime != "" && $username != "" && $password != "" && $pol != "" && $email != "") {
-                                    $success = "<h4>Uspesno ste se registrovali!</h4><br>";
-                                    $red_u_fajlu = $ime . $dm . $prezime . $dm . $username . $dm . $password . $dm . $pol . $dm . $email . "\n";
-                            
-                                    $fajl = fopen("baza_korisnika.dat", "a");
-                                    fwrite($fajl, $red_u_fajlu);
-                                    fclose($fajl);
-                                }
-                                
+                                success_register($ime, $prezime, $username, $password, $pol, $email);   
                             }
                             
                             ?>
                             <div class="error-reg">
                                 <?php 
-                                echo $success;
                                 echo $error_name;
                                 echo $error_last_name;
                                 echo $error_username;
@@ -108,8 +101,6 @@
 </html>
 
 <?php 
-
-
 
 if(isset($_POST["back_to_login"])) {
     header("location:log_in.php");

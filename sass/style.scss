@@ -172,6 +172,10 @@ input[type="submit"] {
                 }
 
                 form {
+                    .radio-gender {
+                        margin-bottom: 10px;
+                    }
+                    
                     input[type="radio"] {
                         margin: 5px 0px;
                         cursor: pointer;
@@ -211,6 +215,11 @@ input[type="submit"] {
                             color: $color--white;
                             background-color: $color--blue;
                         }
+                    }
+
+                    h2 {
+                        color: $color--white;
+                        padding-top: 35px;
                     }
 
                     
