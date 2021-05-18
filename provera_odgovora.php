@@ -13,7 +13,7 @@ if(isset($_POST["proveri_odgovore"])) {
         if($_POST["odgovor1"] == $_SESSION["tacan_odgovor1"]) {
             $tacni++;
         } else {
-            $pitanje1 = "Niste tacno odgovorili na prvo pitanje. <a href='kviz.php'>Pokusajte ponovo.</a>";
+            $pitanje1 = "Niste tacno odgovorili na prvo pitanje. <a class='try-again' href='kviz.php'>Pokusajte ponovo.</a>";
         }
     } else {
         $pitanje1 = "Molimo Vas da unesete odgovor na prvo pitanje.";
@@ -23,7 +23,7 @@ if(isset($_POST["proveri_odgovore"])) {
         if($_POST["odgovor2"] == $_SESSION["tacan_odgovor2"]) {
             $tacni++;
         } else {
-            $pitanje2 = "Niste tacno odgovorili na drugo pitanje. <a href='kviz.php'>Pokusajte ponovo.</a>";
+            $pitanje2 = "Niste tacno odgovorili na drugo pitanje. <a class='try-again' href='kviz.php'>Pokusajte ponovo.</a>";
         }
     } else {
         $pitanje2 = "Molimo Vas da unesete odgovor na drugo pitanje.";
@@ -33,7 +33,7 @@ if(isset($_POST["proveri_odgovore"])) {
         if($_POST["odgovor3"] == $_SESSION["tacan_odgovor3"]) {
             $tacni++;
         } else {
-            $pitanje3 = "Niste tacno odgovorili na trece pitanje. <a href='kviz.php'>Pokusajte ponovo.</a>";
+            $pitanje3 = "Niste tacno odgovorili na trece pitanje. <a class='try-again' href='kviz.php'>Pokusajte ponovo.</a>";
         }
     } else {
         $pitanje3 = "Molimo Vas da unesete odgovor na trece pitanje.";
@@ -43,7 +43,7 @@ if(isset($_POST["proveri_odgovore"])) {
         if($_POST["odgovor4"] == $_SESSION["tacan_odgovor4"]) {
             $tacni++;
         } else {
-            $pitanje4 = "Niste tacno odgovorili na cetvrto pitanje. <a href='kviz.php'>Pokusajte ponovo.</a>";
+            $pitanje4 = "Niste tacno odgovorili na cetvrto pitanje. <a class='try-again' href='kviz.php'>Pokusajte ponovo.</a>";
         }
     } else {
         $pitanje4 = "Molimo Vas da unesete odgovor na cetvrto pitanje.";
@@ -54,7 +54,7 @@ if(isset($_POST["proveri_odgovore"])) {
             $tacni++;
             
         } else {
-            $pitanje5 = "Niste tacno odgovorili na peto pitanje. <a href='kviz.php'>Pokusajte ponovo.</a>";
+            $pitanje5 = "Niste tacno odgovorili na peto pitanje. <a class='try-again' href='kviz.php'>Pokusajte ponovo.</a>";
         }
     } else {
         $pitanje5 = "Molimo Vas da unesete odgovor na peto pitanje.";
@@ -77,16 +77,17 @@ if($tacni == 5) {
             <div class="container-fluid">
                 <div class="container">
                     <div class="results">
-                        <h4>
-                            <?php 
+                        <?php 
+                        if($pitanje1 != "" || $pitanje2 != "" || $pitanje3 != "" || $pitanje4 != "" || $pitanje5 != "") {
+                            echo "<h4>";
                             echo $pitanje1 . "<br>";
                             echo $pitanje2 . "<br>";
                             echo $pitanje3 . "<br>";
                             echo $pitanje4 . "<br>";
                             echo $pitanje5 . "<br>";
-                            ?>
-                        </h4>
-                        
+                            echo "</h4>";
+                        }
+                        ?>
                         <h2>
                             <?php 
                             if($poruka1 == "") {

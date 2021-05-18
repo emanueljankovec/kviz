@@ -445,11 +445,19 @@ input[type="submit"] {
                     padding-bottom: 20px;
                 }
 
+                h4 {
+                    .try-again {
+                        color: $color--green;
+                        transition: .3s ease;
+                        &:hover {
+                            color: $color--blue;
+                        }
+                    }
+                }
+
                 h2 {
                     padding-bottom: 40px;
-                    a {
-                        color: $color--green;
-                    }
+                    
                 }
 
                 .buttons {

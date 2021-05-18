@@ -1,6 +1,6 @@
 <?php 
 session_start();
-
+include_once "functions.php";
 ?>
  
 <html>
@@ -49,12 +49,10 @@ session_start();
                             }
 
                             $_SESSION["tacan_odgovor1"] = $odg1;
-                            echo "<p>$pitanje1</p>";
-                            echo "<input type='text' name='odgovor1'>";
 
-                            
+                            questions_print($pitanje1, 1);
 
-                            $sadrzaj = file("pitanja.txt");
+                            //$sadrzaj = file("pitanja.txt");
                             
                             $red = $sadrzaj[array_rand($sadrzaj)];
                             $red = str_replace("\n", "", $red);
@@ -70,8 +68,7 @@ session_start();
 
                             if($pitanje2 != $pitanje1)
                             {
-                                echo "<p>$pitanje2</p>";
-                                echo "<input type='text' name='odgovor2'>";
+                                questions_print($pitanje2, 2);
 
                                 $_SESSION["tacan_odgovor2"] = $odg2;
                             }
@@ -79,9 +76,8 @@ session_start();
                             {
                                 header("location: kviz.php");
                             }
-
-                            
-                            $sadrzaj = file("pitanja.txt");
+                          
+                            //$sadrzaj = file("pitanja.txt");
                             
                             $red= $sadrzaj[array_rand($sadrzaj)];
                             $red = str_replace("\n", "", $red);
@@ -98,8 +94,7 @@ session_start();
 
                             if($pitanje3 != $pitanje2 && $pitanje3 != $pitanje1)
                             {
-                                echo "<p>$pitanje3</p>";
-                                echo "<input type='text' name='odgovor3'>";
+                                questions_print($pitanje3, 3);
 
                                 $_SESSION["tacan_odgovor3"] = $odg3;
                             }
@@ -109,7 +104,7 @@ session_start();
                             }
                             
 
-                            $sadrzaj = file("pitanja.txt");
+                            //$sadrzaj = file("pitanja.txt");
                             
                             $red = $sadrzaj[array_rand($sadrzaj)];
                             $red = str_replace("\n", "", $red);
@@ -126,8 +121,7 @@ session_start();
                             
                             if($pitanje4 != $pitanje3 && $pitanje4 != $pitanje2 && $pitanje4 != $pitanje1)
                             {
-                                echo "<p>$pitanje4</p>";
-                                echo "<input type='text' name='odgovor4'>";
+                                questions_print($pitanje4, 4);
 
                                 $_SESSION["tacan_odgovor4"] = $odg4;
                             }
@@ -135,10 +129,8 @@ session_start();
                             {
                                 header("location: kviz.php");
                             }
-                            
-                            
-
-                            $sadrzaj = file("pitanja.txt");
+                                                       
+                            //$sadrzaj = file("pitanja.txt");
                             
                             $red = $sadrzaj[array_rand($sadrzaj)];
                             $red = str_replace("\n", "", $red);
@@ -155,8 +147,7 @@ session_start();
                             
                             if($pitanje5 != $pitanje4 && $pitanje5 != $pitanje3 && $pitanje5 != $pitanje2 && $pitanje5 != $pitanje1)
                             {
-                                echo "<p>$pitanje5</p>";
-                                echo "<input type='text' name='odgovor5'>";
+                                questions_print($pitanje5, 5);
 
                                 $_SESSION["tacan_odgovor5"] = $odg5;
                             }
