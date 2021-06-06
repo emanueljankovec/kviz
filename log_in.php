@@ -16,6 +16,14 @@ $pass_error = "";
             <div class="container">
                 <div class="login-form">
                     <h1>Ulogujte se</h1>
+                    <?php 
+                    if(isset($_GET["username_change"])) {
+
+                    ?>
+                    <h3>Uspesno ste promenili username</h3>
+                    <?php
+                    }
+                    ?>
                     <form action="" method="POST">
                         <input type="text" name="username" placeholder="Username..."><br>
                         <input type="password" name="password" placeholder="Password..."><br><br>
@@ -41,12 +49,23 @@ $pass_error = "";
                             for($i = 0; $i < count($content); $i++) {
                                 if($username == $content[$i]) {
                                     $user = $content[$i];
+                                    $first_name = $content[$i - 2];
+                                    $last_name = $content[$i - 1];
+                                    $_SESSION["ime"] = $first_name;
+                                    $_SESSION["prezime"] = $last_name;
                                 }
                         
                                 if($password == $content[$i]) {
                                     $pass = $content[$i];
+                                    $email = $content[$i + 2];
+                                    $_SESSION["email-adresa"] = $email;
+                                    
                                 }
                             }
+
+                            
+                            
+                            
                             if($username == "") {
                                 $user_error = "<h4 class='empty'>Molimo Vas da unesete vas username.</h4>";
                             }
@@ -69,6 +88,7 @@ $pass_error = "";
                                 $error = "<h4 class='not-valid'>Kredencijali koje ste uneli nisu validni.</h4><div><a href='log_in.php'>Pokusajte ponovo</a></div>";
                             }
                         }
+                        
                         
                         if(isset($_POST["new_register"])) {
                             header("location:register.php");

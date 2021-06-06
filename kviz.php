@@ -51,8 +51,6 @@ include_once "functions.php";
                             $_SESSION["tacan_odgovor1"] = $odg1;
 
                             questions_print($pitanje1, 1);
-
-                            //$sadrzaj = file("pitanja.txt");
                             
                             $red = $sadrzaj[array_rand($sadrzaj)];
                             $red = str_replace("\n", "", $red);
@@ -76,8 +74,6 @@ include_once "functions.php";
                             {
                                 header("location: kviz.php");
                             }
-                          
-                            //$sadrzaj = file("pitanja.txt");
                             
                             $red= $sadrzaj[array_rand($sadrzaj)];
                             $red = str_replace("\n", "", $red);
@@ -103,9 +99,6 @@ include_once "functions.php";
                                 header("location: kviz.php");
                             }
                             
-
-                            //$sadrzaj = file("pitanja.txt");
-                            
                             $red = $sadrzaj[array_rand($sadrzaj)];
                             $red = str_replace("\n", "", $red);
                             $delimiter = "---";
@@ -129,8 +122,6 @@ include_once "functions.php";
                             {
                                 header("location: kviz.php");
                             }
-                                                       
-                            //$sadrzaj = file("pitanja.txt");
                             
                             $red = $sadrzaj[array_rand($sadrzaj)];
                             $red = str_replace("\n", "", $red);

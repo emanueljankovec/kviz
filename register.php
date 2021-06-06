@@ -12,12 +12,12 @@ include_once "functions.php";
                 <div class="container">
                     <div class="register-con">
                         <h1>Register Form</h1>
-                        <form action="" method="POST">
+                        <form action="" method="POST" enctype="multipart/form-data">
                             <input type="text" name="ime" placeholder="Unesite Vase Ime...">
                             <input type="text" name="prezime" placeholder="Unesite Vase Prezime...">
                             <input type="text" name="korisnicko" placeholder="Unesite Vase korisnicko ime...">
                             <input type="password" name="password_register" placeholder="Unesite Vas passowrd">
-                            <input type="email" name="email" placeholder="Unesite Vas email">
+                            <input type="email" name="email" placeholder="Unesite Vas email">                           
                             <div class="radio-gender">
                                 <input type="radio" name="pol" value="Muski"><span class="male">Muski</span>
                                 <input type="radio" name="pol" value="Zenski"><span>Zenski</span>
@@ -79,7 +79,7 @@ include_once "functions.php";
                             
                                 success_register($ime, $prezime, $username, $password, $pol, $email);   
                             }
-                            
+
                             ?>
                             <div class="error-reg">
                                 <?php 

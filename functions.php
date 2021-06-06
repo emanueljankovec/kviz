@@ -31,8 +31,9 @@ function wrong_answers($a1, $a2, $a3, $a4, $a5) {
 function success_register($ime, $prezime, $username, $password, $pol, $email) {
     $dm = "||";
 
-    if($ime != "" && $prezime != "" && $username != "" && $password != "" && $pol != "" && $email != "") {
-        $red_u_fajlu = $ime . $dm . $prezime . $dm . $username . $dm . $password . $dm . $pol . $dm . $email . "\n";
+    if($ime != "" && $prezime != "" && $username != "" && $password != "" && $pol != "" && $email != "" ) {
+        
+        $red_u_fajlu = $ime . $dm . $prezime . $dm . $username . $dm . $password . $dm . $pol . $dm . $email . $dm . "\n" ;
         $fajl = fopen("baza_korisnika.dat", "a");
         fwrite($fajl, $red_u_fajlu);
         fclose($fajl);
